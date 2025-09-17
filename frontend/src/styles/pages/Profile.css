@@ -1,0 +1,66 @@
+/* Styles for Profile component */
+.delete-account-parent-button {
+  border-bottom-width: 1px;
+  color: white !important;
+  font-size: smaller;
+  margin-top: 40px;
+  border-radius: 5px;
+  font-size: larger;
+  padding: 1svh;
+  background-color: rgb(243, 0, 0) !important;
+  width: clamp(120px, 20vw, 200px);
+}
+
+.update-account-parent-button {
+  border-bottom-width: 1px;
+  color: white !important;
+  font-size: larger;
+  margin-top: 40px;
+  border-radius: 5px;
+  padding: 1svh;
+  background-color: rgb(79, 214, 117) !important;
+  width: clamp(120px, 20vw, 200px);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: lemonchiffon;
+  color: red;
+}
+
+.modal h4,
+.modal h3,
+.modal ul {
+  margin: 15px 3%;
+}
+.delete-info-list {
+  line-height: 22px;
+  margin-top: 0;
+}
+.account-delete-div {
+  display: flex;
+  flex-direction: row;
+  gap: 3vw;
+}
+.delete-account-button {
+  border-radius: 5px;
+  background-color: red !important;
+  color: white !important;
+  padding: 5px 15px !important;
+  font-weight: bold;
+}
+.cancel-button {
+  border-radius: 5px;
+  background-color: rgb(79, 214, 117) !important;
+  color: white !important;
+  padding: 5px 15px;
+  font-weight: bold;
+}

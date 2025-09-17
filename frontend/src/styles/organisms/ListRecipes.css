@@ -1,0 +1,232 @@
+/* Styles for ListRecipes component */
+h1 {
+  margin: 50px;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.img-container {
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.img-container:hover {
+  border-color: rgb(67, 190, 102);
+  transform: translateY(-3px);
+}
+
+.img-items {
+  width: 100%;
+  height: 0;
+  padding-bottom: 55%; /* Ratio légèrement plus grand pour mieux voir l'image */
+  position: relative;
+  overflow: hidden;
+}
+
+.img-items img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.img-container:hover img {
+  transform: scale(1.05);
+}
+
+.page-btn {
+  min-width: 40px;
+  height: 40px;
+  border: none;
+  background-color: #f5f5f5 !important;
+  color: #666 !important;
+  border-radius: 8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.page-btn:hover {
+  background-color: #e0e0e0 !important;
+}
+
+.page-btn.active {
+  background-color: rgb(67, 190, 102) !important;
+  color: white !important;
+}
+
+.rating-display {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rating-star {
+  font-size: 20px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.rating-star.filled {
+  color: #ffa500;
+}
+
+.rating-star.outlined {
+  color: #ffa500;
+  opacity: 0.7;
+}
+
+.rating-value {
+  margin-left: 6px;
+  color: #2c3e50;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.rating-label {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 6px 10px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.favorites-rating-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.fav-list {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.fav-list:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.fav-list svg {
+  font-size: 16px;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.fav-list.active svg {
+  color: #ff3b30;
+}
+
+.recipe-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  font-weight: 600;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.recipe-info p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.recipe-details {
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.recipe-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #666;
+  padding: 4px 0;
+}
+
+.recipe-detail-item svg {
+  color: rgb(67, 190, 102);
+  font-size: 1rem;
+}
+
+/* Media Queries pour le responsive de tablet */
+@media screen and (max-width: 1224px) {
+  .main-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 0;
+  }
+}
+
+/* Media Queries pour le responsive de tablet */
+@media screen and (max-width: 1024px) {
+  .main-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 0;
+  }
+}
+
+/* Media Queries pour le responsive de mobile */
+@media screen and (max-width: 640px) {
+  .main-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+}
+
+/* Style moderne pour la pagination */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 30px 0;
+}
+
+/* Assurer que la modal est au-dessus */
+.ReactModal__Overlay {
+  z-index: 1005 !important;
+}
+
+.ReactModal__Content {
+  z-index: 1000 !important;
+}
