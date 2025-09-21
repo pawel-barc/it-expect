@@ -95,4 +95,21 @@ describe("FavoriteController integration", () => {
     );
     expect(deleteRes.body.favorites).toHaveLength(0);
   });
+
+  test("User can't add the same recipe twice to the favorites", async () => {
+    // Ajout de la recette pour la prémière fois
+    const firstShot = await request(app)
+      .post("/add-favorite")
+      .set("Cookie", [`accessToken=${token}`])
+      .send({ recipeId: recipe._id.toString() });
+    expect(firstShot.statusCode).toBe(201);
+
+    // Ajout de la recette pour la deuxième fois
+    const secondShot = await request(app)
+      .post("/add-favorite")
+      .set("Cookie", [`accessToken=${token}`])
+      .send({ recipeId: recipe._id.toString() });
+    expect(secondShot.statusCode).toBe(400);
+    expect(secondShot.body.error).toBe("La recette est déjà dans les favoris");
+  });
 });
