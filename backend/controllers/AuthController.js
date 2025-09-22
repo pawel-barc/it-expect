@@ -19,7 +19,7 @@ class AuthController {
 
     // Validation du nom, de l'email et du mot de passe
     if (!validateLength(name, 3)) {
-      errors.push('"Le nom est requis et doit contenir au moins 3 caractères"');
+      errors.push("Le nom est requis et doit contenir au moins 3 caractères");
     }
 
     if (!validateEmail(email)) {
@@ -28,7 +28,7 @@ class AuthController {
 
     if (!validatePassword(password)) {
       errors.push(
-        "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial "
+        "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial"
       );
     }
     //Si des erreurs sont présentes, renvoyer une réponse avec un code 400
@@ -92,7 +92,7 @@ class AuthController {
   //Méthode pour la connexion de l'utilisateur
   static login = async (req, res) => {
     const { email, password } = req.body;
-  
+
     try {
       const user = await User.findOne({ email });
       if (!user) {
@@ -100,36 +100,36 @@ class AuthController {
           error: "Email ou mot de passe incorrect",
         });
       }
-  
+
       const isPasswordValid = await bcryptjs.compare(password, user.password);
       if (!isPasswordValid) {
         return res.status(401).json({
           error: "Email ou mot de passe incorrect",
         });
       }
-  
+
       const accessToken = AuthController.generateAccessToken(user);
       const refreshToken = AuthController.generateRefreshToken(user);
-  
+
       res.cookie("refreshToken", refreshToken, {
         httpOnly: true,
         sameSite: "Strict",
         maxAge: 7 * 24 * 60 * 60 * 1000,
       });
-  
+
       res.cookie("accessToken", accessToken, {
         httpOnly: true,
         sameSite: "Strict",
         maxAge: 15 * 60 * 1000,
       });
-  
+
       res.status(200).json({
         success: "Utilisateur connecté",
         user: {
           id: user._id,
           name: user.name,
-          email: user.email
-        }
+          email: user.email,
+        },
       });
     } catch (err) {
       console.error("Login error:", err);

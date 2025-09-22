@@ -38,7 +38,7 @@ const Login = () => {
             email: apiResponse.user.email,
           });
           toast.success("La connexion a réussie");
-          navigate("/");
+          navigate("/profile");
         } else if (apiResponse.error) {
           // Si la connexion échoue, afficher l'erreur
           setErrorMessage(apiResponse.error);

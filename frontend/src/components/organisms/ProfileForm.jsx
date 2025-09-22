@@ -19,6 +19,7 @@ const ProfileForm = ({
             <h2>Nom</h2>
             <input
               type="text"
+              data-cy="name-input"
               name="name"
               id="name"
               placeholder="Votre nom"
@@ -36,6 +37,7 @@ const ProfileForm = ({
 
             <input
               type="email"
+              data-cy="email-input"
               name="email"
               id="email"
               onChange={formik.handleChange}
@@ -51,6 +53,7 @@ const ProfileForm = ({
 
             <input
               type="password"
+              data-cy="password-input"
               name="password"
               id="password"
               placeholder="Laisser vide si inchangé"
@@ -67,6 +70,7 @@ const ProfileForm = ({
 
             <input
               type="password"
+              data-cy="repeat-password-input"
               name="repeatPassword"
               id="repeatPassword"
               placeholder="Confirmez le mot de passe"
@@ -86,12 +90,17 @@ const ProfileForm = ({
           <div className="button-container">
             <button
               type="button"
+              data-cy="delete-button"
               className="delete-account-parent-button" // Affiche la confirmation de suppression
               onClick={confirmDelete}
             >
               Supprimer
             </button>
-            <button type="submit" className="update-account-parent-button">
+            <button
+              type="submit"
+              data-cy="update-button"
+              className="update-account-parent-button"
+            >
               Mettre à jour
             </button>
           </div>

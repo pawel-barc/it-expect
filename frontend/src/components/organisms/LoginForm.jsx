@@ -16,6 +16,7 @@ const LoginForm = ({ formik, errorMessage }) => {
         <h2>Email:</h2>
         <input
           type="email"
+          data-cy="email-input"
           name="email"
           id="email"
           onChange={formik.handleChange}
@@ -30,6 +31,7 @@ const LoginForm = ({ formik, errorMessage }) => {
         <h2>Le mot de passe:</h2>
         <input
           type="password"
+          data-cy="password-input"
           name="password"
           id="password"
           onChange={formik.handleChange}
@@ -43,7 +45,12 @@ const LoginForm = ({ formik, errorMessage }) => {
       {/* Affichage des erreurs du formik et du backend */}
       {formik.errors.api && <div className="error">{formik.errors.api}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
-      <button className="user-btn" type="submit" disabled={formik.isSubmitting}>
+      <button
+        className="user-btn"
+        data-cy="login-button"
+        type="submit"
+        disabled={formik.isSubmitting}
+      >
         Se connecter
       </button>
 
